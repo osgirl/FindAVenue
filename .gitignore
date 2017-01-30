@@ -1,3 +1,9 @@
+# App
+
+dist/css/
+dist/js/
+
+
 # Logs
 logs
 *.log
