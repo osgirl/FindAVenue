@@ -7,8 +7,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint src/js/components/**",
-    "watch": "watchify -v -d -t [ babelify --presets [ es2015 react ] ] src/js/main.js -o dist/js/compiled.js",
-    "build": "NODE_ENV=production browserify -t [ babelify --presets [ es2015 react ] ] src/js/main.js | uglifyjs > dist/js/compiled.js | lessc --clean-css src/assets/less/styles.less dist/css/styles.min.css"
+    "watch": "watchify -v -d -t [ babelify --presets [ es2015 react ] ] src/js/main.js -o dist/compiled.js",
+    "build": "NODE_ENV=production browserify -t [ babelify --presets [ es2015 react ] ] src/js/main.js | uglifyjs > dist/compiled.js | lessc --clean-css src/assets/less/styles.less dist/css/styles.min.css"
   },
   "babel": {
     "presets": [
@@ -21,10 +21,8 @@
     "babel-cli": "^6.11.4",
     "babel-preset-es2015": "^6.9.0",
     "classnames": "^2.2.5",
-    "moment": "^2.14.1",
     "react": "^15.2.1",
     "react-addons-test-utils": "^15.2.1",
-    "react-datetime": "^2.4.0",
     "react-dom": "*",
     "react-router": "^2.6.0"
   },
@@ -36,7 +34,6 @@
     "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
     "browserify": "^9.0.8",
-    "envify": "^3.4.1",
     "eslint": "^3.1.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.11.1",

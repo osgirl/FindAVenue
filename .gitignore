@@ -1,7 +1,7 @@
 # App
 
 dist/css/
-dist/js/
+dist/compiled.js
 
 
 # Logs

@@ -1,6 +1,7 @@
 let React = require("react");
 
 let GlobalHeader = require("./GlobalHeader");
+let MainContent = require("./MainContent");
 let GlobalFooter = require("./GlobalFooter");
 
 /* Data - This could be CMS Driven, CMS renders JSON data per page. */
@@ -23,7 +24,7 @@ class App extends React.Component {
 				<GlobalHeader data={headerData} />
 				<main role="main" className="main-page clearfix">
 					<div className="container clearfix">
-						Inner Content
+						<MainContent />
 					</div>
 				</main>
 				<GlobalFooter />
