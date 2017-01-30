@@ -97,10 +97,11 @@ class MainContent extends React.Component {
 
     return (
       <div className="venue-view clearfix">
-        
+
         <form action="#" method="GET" id="searchform" onSubmit={this._onSubmit}>
-          <input type="text" name="query" id="query" ref="query" placeholder="Example: Coffee" />
-          <input type="submit" name="submit" id="submit" value="Submit" />
+          <p> Find a popular around your location</p>
+          <input type="text" name="query" id="query" ref="query" className="text-input" placeholder="Example: Coffee" />
+          <input type="submit" name="submit" id="submit" value="Submit" className="button" />
         </form>
         
         <ErrorMessage error={this.state.errorMessage} loading={this.state.loading} />
