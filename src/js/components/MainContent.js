@@ -1,4 +1,5 @@
 let React = require("react");
+let VenueResultItem = require("./VenueResultItem");
 
 // Setup Error Message
 const ErrorMessage = (props) => {
@@ -55,7 +56,7 @@ class MainContent extends React.Component {
       const obj = this;
       // Ajax into the data, set as const
       const request = new XMLHttpRequest();
-      request.open("GET", "https://api.foursquare.com/v2/venues/explore?ll="+this.state.location_lat+","+this.state.location_long+"&client_id=JFEYZB0NB4IPFVGUJRKWM4GWAIJRAVG4KCKKVI44T2INOODV&client_secret=5UO5SPGZUD5FOO0RCJBWYS35YCCOARG1IBOXIM45VOGEV0Y3&v=20130619&query=" + this.state.query + "", true);
+      request.open("GET", "https://api.foursquare.com/v2/venues/explore?ll="+this.state.location_lat+","+this.state.location_long+"&client_id=JFEYZB0NB4IPFVGUJRKWM4GWAIJRAVG4KCKKVI44T2INOODV&client_secret=5UO5SPGZUD5FOO0RCJBWYS35YCCOARG1IBOXIM45VOGEV0Y3&v=20130619&query=" + this.state.query + "&limit=5", true);
       request.onload = function () {
         if (this.status >= 200 && this.status < 400) {
           // Success!
@@ -85,14 +86,11 @@ class MainContent extends React.Component {
 
     // If there is data, display all the different parts.
     if (this.state.venueData) {
-      const theVenueJson = this.state.venueData;
-      const theVenueParse = JSON.parse(theVenueJson);
+      const theVenueJson = JSON.parse(this.state.venueData);
+      const theVenueResults = theVenueJson.response.groups[0].items
 
-      console.log(theVenueParse);
-
-      VenueResults = this.state.theVenueParse.map(function (element, index) {
-        console.log(element);
-        // return (<QuickFlightInfo theData={element} isSearchResult />);
+      VenueResults = theVenueResults.map(function (element, index) {
+        return (<VenueResultItem theData={element} />);
       });
 
     }
