@@ -7,7 +7,7 @@ function GlobalFooter() {
       <div className="container clearfix">
         <span>&copy; Alex Whitlock</span>
       </div>
-  </div>
+    </div>
   );
 }
 

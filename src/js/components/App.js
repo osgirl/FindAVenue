@@ -1,36 +1,29 @@
-let React = require("react");
+const React = require('react');
 
-let GlobalHeader = require("./GlobalHeader");
-let MainContent = require("./MainContent");
-let GlobalFooter = require("./GlobalFooter");
+const GlobalHeader = require('./GlobalHeader');
+const MainContent = require('./MainContent');
+const GlobalFooter = require('./GlobalFooter');
 
 /* Data - This could be CMS Driven, CMS renders JSON data per page. */
-let headerData = [
-  { text: "Help", link: "/help/" }
+const headerData = [
+  { text: 'Help', link: '/help/' },
 ];
 
-class App extends React.Component {
+// ES6 Stateless Component
+const App = () => (
+  <div>
+    <GlobalHeader data={headerData} />
+    <main role="main" className="main-page clearfix">
+      <div className="container clearfix">
+        <MainContent />
+      </div>
+    </main>
+    <GlobalFooter />
+  </div>
+);
 
-	getInitialState() {
-		return {
-			view: "search"
-		};
-	}
-
-	render() {
-	// Global Main Renderer
-		return (
-			<div>
-				<GlobalHeader data={headerData} />
-				<main role="main" className="main-page clearfix">
-					<div className="container clearfix">
-						<MainContent />
-					</div>
-				</main>
-				<GlobalFooter />
-			</div>
-		);
-	}
-}
+App.propTypes = {
+  headerData: React.PropTypes.object,
+};
 
 module.exports = App;

@@ -15,6 +15,7 @@ class GlobalHeader extends React.Component {
 
   _handleClick() {
     const obj = this;
+    // This sets the state for the mobile menu
     obj.state.expanded === true ? (
       obj.setState({ expanded: false })
     ) : (
