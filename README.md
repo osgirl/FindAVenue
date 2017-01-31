@@ -11,6 +11,8 @@ To see react > minified.js run:
 ```sh
 1) $ npm install
 2) $ npm run build
+or
+2) $ npm run build-windows 
 ```
 
 ## Detail
@@ -58,6 +60,7 @@ Then i creaeted tests (I know some people like to make tests first! ... :/ ) usi
 
 ## Notes
 
+Works best on Mac OSX.
 SEO Friendly.
 No JS (other then React) or CSS library used to reduce page weight.
 AirBnb are great linting rules, unforuntaly they are very strict and only fixed a few plugins, however, perfectly builds.

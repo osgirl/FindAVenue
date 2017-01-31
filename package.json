@@ -8,7 +8,8 @@
     "test": "jest",
     "lint": "eslint src/js/components/**",
     "watch": "watchify -v -d -t [ babelify --presets [ es2015 react ] ] src/js/main.js -o dist/compiled.js | gulp watch",
-    "build": "NODE_ENV=production browserify -t [ babelify --presets [ es2015 react ] ] src/js/main.js | uglifyjs > dist/compiled.js | lessc --clean-css src/assets/less/styles.less dist/css/styles.min.css"
+    "build": "NODE_ENV=production browserify -t [ babelify --presets [ es2015 react ] ] src/js/main.js | uglifyjs > dist/compiled.js | lessc --clean-css src/assets/less/styles.less dist/css/styles.min.css",
+    "build-windows": "browserify -t [ babelify --presets [ es2015 react ] ] src/js/main.js | uglifyjs > dist/compiled.js | lessc --clean-css src/assets/less/styles.less dist/css/styles.min.css"
   },
   "babel": {
     "presets": [
