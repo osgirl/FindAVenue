@@ -1,6 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import classNames from "classNames";
+import React from 'react';
+import classNames from 'classNames';
 
 // ES6 (statefull) Component
 class GlobalHeader extends React.Component {

@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint src/js/components/**",
-    "watch": "watchify -v -d -t [ babelify --presets [ es2015 react ] ] src/js/main.js -o dist/compiled.js",
+    "watch": "watchify -v -d -t [ babelify --presets [ es2015 react ] ] src/js/main.js -o dist/compiled.js | gulp watch",
     "build": "NODE_ENV=production browserify -t [ babelify --presets [ es2015 react ] ] src/js/main.js | uglifyjs > dist/compiled.js | lessc --clean-css src/assets/less/styles.less dist/css/styles.min.css"
   },
   "babel": {
@@ -39,9 +39,12 @@
     "eslint-plugin-import": "^1.11.1",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
+    "gulp-rename": "^1.2.2",
     "jest-cli": "^13.2.3",
     "less": "*",
-    "less-plugin-clean-css": "*",
+    "less-plugin-clean-css": "^1.5.1",
     "react-addons-test-utils": "^15.2.1",
     "react-shallow-testutils": "^2.0.0",
     "uglify-js": "^2.4.20",
