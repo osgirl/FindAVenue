@@ -49,11 +49,13 @@ class MainContent extends React.Component {
 
     if (!this.state.location_lat) {
       navigator.geolocation.getCurrentPosition(this._getLocation);
-    } else {
-      
-      // Now we have the lat and long, get the venue info
+    }
 
+    if (this.state.location_lat) {
+      // Now we have the lat and long, get the venue info
       const obj = this;
+      obj.setState({loading: true});
+
       // Ajax into the data, set as const
       const request = new XMLHttpRequest();
       request.open("GET", "https://api.foursquare.com/v2/venues/explore?ll="+this.state.location_lat+","+this.state.location_long+"&client_id=JFEYZB0NB4IPFVGUJRKWM4GWAIJRAVG4KCKKVI44T2INOODV&client_secret=5UO5SPGZUD5FOO0RCJBWYS35YCCOARG1IBOXIM45VOGEV0Y3&v=20130619&query=" + this.state.query + "&limit=5", true);
@@ -66,20 +68,15 @@ class MainContent extends React.Component {
           });
         } else {
           // We reached our target server, but it returned an error
-          obj.setState({
-            errorMessage: "Error getting data"
-          });
+          obj.setState({errorMessage: "Error getting data"});
         }
       };
       request.onerror = function () {
-        obj.setState({
-          errorMessage: "Error connecting to Server"
-        });
-        };
+        obj.setState({errorMessage: "Error connecting to Server"});
+      };
       request.send();
-      }
-
     }
+  }
 
   render() {
     let theErrorMessage, LoadingMessage, VenueResults;
@@ -99,16 +96,16 @@ class MainContent extends React.Component {
       <div className="venue-view clearfix">
 
         <form action="#" method="GET" id="searchform" onSubmit={this._onSubmit}>
-          <p> Find a popular around your location</p>
+          <p> Find a popular venue around your location</p>
           <input type="text" name="query" id="query" ref="query" className="text-input" placeholder="Example: Coffee" />
           <input type="submit" name="submit" id="submit" value="Submit" className="button" />
         </form>
         
         <ErrorMessage error={this.state.errorMessage} loading={this.state.loading} />
         
-        <div>
+        <ul className="venue--results">
           {VenueResults}
-        </div>
+        </ul>
 
   
       </div>
