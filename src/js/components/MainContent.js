@@ -31,9 +31,9 @@ class MainContent extends React.Component {
       location_lat: null,
       location_long: null,
       venueData: null,
-      query: "",
+      query: '',
       errorMessage: null,
-      loading: true
+      loading: false,
     };
   }
 
@@ -58,7 +58,7 @@ class MainContent extends React.Component {
 
       // Ajax into the data, set as const
       const request = new XMLHttpRequest();
-      request.open("GET", "https://api.foursquare.com/v2/venues/explore?ll="+this.state.location_lat+","+this.state.location_long+"&client_id=JFEYZB0NB4IPFVGUJRKWM4GWAIJRAVG4KCKKVI44T2INOODV&client_secret=5UO5SPGZUD5FOO0RCJBWYS35YCCOARG1IBOXIM45VOGEV0Y3&v=20130619&query=" + this.state.query + "&limit=5", true);
+      request.open("GET", "https://api.foursquare.com/v2/venues/explore?ll="+this.state.location_lat+","+this.state.location_long+"&client_id=JFEYZB0NB4IPFVGUJRKWM4GWAIJRAVG4KCKKVI44T2INOODV&client_secret=5UO5SPGZUD5FOO0RCJBWYS35YCCOARG1IBOXIM45VOGEV0Y3&v=20130619&query=" + this.state.query + "&limit=6", true);
       request.onload = function () {
         if (this.status >= 200 && this.status < 400) {
           // Success!

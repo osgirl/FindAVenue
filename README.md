@@ -61,3 +61,4 @@ Then i creaeted tests (I know some people like to make tests first! ... :/ ) usi
 SEO Friendly.
 No JS (other then React) or CSS library used to reduce page weight.
 AirBnb are great linting rules, unforuntaly they are very strict and only fixed a few plugins, however, perfectly builds.
+There is a small bug where you have to press "submit" twice
